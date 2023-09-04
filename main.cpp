@@ -9,8 +9,6 @@
 
 
 int main() {
-    std::vector<int> List;
-    // Need to take in growing vector, thus size cannot be defined.
     // Take a string as input, and convert it to a vector of characters, back into the List vector.
     std::string stringList;
     std::cout << "Please enter a vector, with the elements separated by a space. ";
@@ -20,7 +18,7 @@ int main() {
     std::cout << stringList;
 
     // Convert to vector
-    
+    std::vector<int> List(stringList.begin(), stringList.end());
 
     // Create a sorting class to sort the list
     Sort sorting;
