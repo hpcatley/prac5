@@ -15,18 +15,23 @@ int main() {
     std::cout << "Click enter when complete." << std::endl;
     // Take the whole line as input
     std::getline(std::cin, stringList);
-    std::cout << stringList;
+    
+    // Convert to character array (this bit helped from https://www.geeksforgeeks.org/cpp-convert-string-to-integer-vector/)
+    const char* charList = stringList.c_str();
 
-    // Convert to vector
-    std::vector<int> List(stringList.begin(), stringList.end());
+    // Initialise vector and add converted characters
+    std::vector<int> List;
+    for (int i=0; i<sizeof(charList); i++) {
+        List.push_back(atoi(charList));
+    }
+    
+    
+    for (int i=0; i<sizeof(List); i++) {
+        std::cout << List[i] << " ";
+    }
+    
 
-    // Create a sorting class to sort the list
-    Sort sorting;
-    std::vector<int> sortedList = sorting.sort(List);
 
-    // Output the list
-    for (int i=0; i<sizeof(sortedList); i++)
-        std::cout << sortedList[i];
     return 0;
 
 }
