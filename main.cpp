@@ -6,30 +6,23 @@
 #include <string>
 #include <iostream>
 #include <vector>
+#include <sstream>
 
 
 int main() {
-    // Take a string as input, and convert it to a vector of characters, back into the List vector.
     std::string stringList;
-    std::cout << "Please enter a vector, with the elements separated by a space. ";
-    std::cout << "Click enter when complete." << std::endl;
-    // Take the whole line as input
     std::getline(std::cin, stringList);
-    
-    // Convert to character array (this bit helped from https://www.geeksforgeeks.org/cpp-convert-string-to-integer-vector/)
-    const char* charList = stringList.c_str();
+    std::istringstream iss(stringList); // asked someone in class to get help with the vector input, 
+                                        // but I forgot to get their name. This is the only thing I asked help
+                                        // from someone with.
+    int n;
+    std::vector<int> intList;
+    while (iss >> n) {
+        intList.push_back(n);
+    }
 
-    // Initialise vector and add converted characters
-    std::vector<int> List;
-    for (int i=0; i<sizeof(charList); i++) {
-        List.push_back(atoi(charList));
-    }
-    
-    
-    for (int i=0; i<sizeof(List); i++) {
-        std::cout << List[i] << " ";
-    }
-    
+    // Use quick sort to sort array, then use binary
+    // search to determine if 1 is in the array.
 
 
     return 0;
